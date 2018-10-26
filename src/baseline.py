@@ -13,8 +13,9 @@ import numpy as np, pandas as pd
 
 new_array = np.load(tmp_path_base + 'data.npy',)
 list_all_label = np.load(tmp_path_base + 'label.npy')
+print(new_array.shape)
 
-idx = np.random.randint(new_array.shape[0], size=10000)
+idx = np.random.randint(new_array.shape[0], size=40000)
 print(idx)
 new_array = new_array[idx]
 list_all_label = list_all_label[idx]
@@ -28,6 +29,6 @@ data = df.values
 
 data = MinMaxScaler().fit_transform(data)
 
-model2 = RandomForestClassifier(n_estimators=200)
-scores2 = cross_val_score(model2, data, label, cv=2, scoring='accuracy')
+model2 = RandomForestClassifier(n_estimators=100)
+scores2 = cross_val_score(model2, data, label, cv=10, scoring='accuracy', verbose=1)
 print(scores2)

@@ -57,7 +57,7 @@ def get_data():
     new_array = new_array.reshape(-1, list_all_data[0].shape[0], list_all_data[0].shape[1])
     print('final data shape:', new_array.shape, 'final label shape:', len(list_all_label))
     
-    np.save('E:/DATA/CNNFusion/tmp/data.npy', new_array)
-    np.save('E:/DATA/CNNFusion/tmp/label.npy', np.array(list_all_label))
+    np.save(tmp_path_base + 'data.npy', new_array)
+    np.save(tmp_path_base + 'label.npy', np.array(list_all_label))
     
 get_data()
