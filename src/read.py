@@ -6,14 +6,7 @@
 '''
 
 import os, pandas as pd, numpy as np, time
-
-input_path_base = 'E:/DATA/CNNFusion/'
-tmp_path_base = 'E:/DATA/CNNFusion/tmp/'
-activities = ['walking', 'standing', 'sitting', 'running', 'lying', 'jumping', 'climbingup', 'climbingdown']
-sensors = ['Microphone', 'MagneticField', 'Light', 'Gyroscope', 'GPS', 'acc']
-positions = ['waist', 'shin', 'head', 'upperarm', 'thigh', 'chest', 'forearm']
-filterLowSampleRateData = 5000
-rolling_mean_interval = 100  # millisecond 
+from config import input_path_base, tmp_path_base, filterLowSampleRateData, rolling_mean_interval, activities
 
 def Read_get_an_activity_MinMax(input_path_one_person, activity):
 
@@ -82,7 +75,7 @@ def merge_an_activity_data(activity, person_id, tmp_path, df_dict, one_activity_
     df_all = df_all.fillna(method='ffill', axis=0)  # file missing values
     
     print('All sensor merged shape:', df_all.shape)
-    df_all.to_csv(tmp_path + str(person_id) + '_' + activity + '.csv')  # rename and save
+    df_all.to_csv(tmp_path + str(person_id) + '_' + activity + '.csv', index=False)  # rename and save
 
 def process_all_files_all_man():
 
