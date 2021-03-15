@@ -1,16 +1,6 @@
 # coding:utf-8
 '''
-@time:    Created on  2019-05-06 16:42:24
-@author:  Lanqing
-@Func:    尝试新方法。算法过程如下：
-            1.全局采样,做自互相关计算
-            2.找出分组
-            3.定义变量， 定义 sensor based网络
-            4.各自卷积得到 feature map
-            5.尝不同feature map找 feature map order 
-            6. feature map order有可能 class label关联
-            7.用小而深model尝试map，用final model分类
-            8.得到分类结果
+@time:    Created on  2020-05-06 16:42:24
 '''
 
 import sklearn
